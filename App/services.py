@@ -55,3 +55,20 @@ def delete_country(country_id_to_delete):
     mycursor.close()
     conn.myconn.close()
 
+def update_country(country_id,data):
+    #Open connection to SQL
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Stuff to execute
+    name = data['Name']
+    pop = data['Population']
+    cont = data['Continent']
+    values = (country_id,name,pop,cont)
+
+    mysql = "Update Country where CountryId = %s(CountryId, Name, Population, Continent) VALUES (%s,%s,%s,%s)"
+    mycursor.execute(mysql,values)
+
+    #Close the connection
+    mycursor.close()
+    conn.myconn.close()

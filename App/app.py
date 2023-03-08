@@ -24,6 +24,11 @@ def create_country():
 def delete_country(country_id):
     return country.delete_country(country_id)
 
+@app.put("/countries/<int:country_id>")
+def update_country(country_id):
+    data = request.json
+    return country.update_country(country_id,data)
+
 #Execute on the terminal as a script
 if __name__ == '__main__':
     app.run(debug=True)
