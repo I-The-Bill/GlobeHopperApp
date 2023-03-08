@@ -3,7 +3,7 @@
 from flask import Flask, request, jsonify
 import conn 
 
-## mycursor = conn.myconn.cursor()
+##DON"T COUNT THIS SQ mycursor = conn.myconn.cursor()
 
 #get all country records from country table
 def get_all_countries():
