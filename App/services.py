@@ -73,9 +73,38 @@ def update_country_serv(country_id,data):
     mycursor.close()
     conn.myconn.close()
 
+def get_all_countries_from_continent_serv(continent):
+            #Open connection to SQL
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
 
+    #Stuff to execute
+    mysql = ("Select Name from Country where Continent = %s")
+    mycursor.execute(mysql,(continent,))
+    results = mycursor.fetchall()
 
+    #Close the connection
+    mycursor.close()
+    conn.myconn.close()
 
+    #Return
+    return results
+
+def get_capital_from_country_coun_serv(countryName):
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Stuff to execute
+    mysql = ("Select City.Name,Country.Name as 'Country',Country.Continent,City.FirstLandmark,City.SecondLandmark,City.ThirdLandmark from Country join City where Country.CountryId = City.CountryId and Capital = 1 and Country.Name = %s;")
+    mycursor.execute(mysql,(countryName,))
+    results = mycursor.fetchall()
+
+    #Close the connection
+    mycursor.close()
+    conn.myconn.close()
+
+    #Return
+    return results
 #####CITES#####
 
 

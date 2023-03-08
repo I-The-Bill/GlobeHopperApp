@@ -17,6 +17,26 @@ def get_all_countries_coun():
     return jsonify(data)
 
 
+def get_all_countries_from_continent_coun(Continent):
+    results = services.get_all_countries_from_continent_serv(Continent)
+    data = []
+    for row in results:
+        data.append({"Name":row[0]})
+    return jsonify(data)
+
+def get_capital_from_country_coun(countryName):
+    results = services.get_capital_from_country_coun_serv(countryName)
+    data = []
+    for row in results:
+        data.append({"Name":row[0],
+                     "Country":row[1],
+                     "Continent":row[2],
+                     "First Landmark":row[3],
+                     "Second Landmark":row[4],
+                     "Third Landmark":row[5]
+                    }) 
+    return jsonify(data)
+
 def create_country_coun(data):
     services.create_country_serv(data)
     return jsonify({"Message":"Data inserted successfully"})
