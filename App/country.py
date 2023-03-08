@@ -21,6 +21,6 @@ def create_country(data):
     services.create_country(data)
     return jsonify({"Message":"Data inserted successfully"})
 
-def delete_country(country_Id):
-    services.delete_country(country_Id)
+def delete_country(country_id):
+    services.delete_country(country_id)
     return jsonify({"Message":"Data removed successfully"})
