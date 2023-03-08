@@ -6,7 +6,7 @@ import conn
 ## mycursor = conn.myconn.cursor()
 
 #get all country records from country table
-def getAllCountries():
+def get_all_countries():
     
     #Open connection to SQL
     conn.myconn._open_connection()
@@ -23,7 +23,7 @@ def getAllCountries():
     #Return
     return results
 
-def createCountry(data):
+def create_country(data):
     #Open connection to SQL
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -42,7 +42,7 @@ def createCountry(data):
     mycursor.close()
     conn.myconn.close()
 
-def deleteCountry(countryIdToDelete):
+def delete_country(countryIdToDelete):
     #Open connection to SQL
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()

@@ -12,17 +12,17 @@ app = Flask(__name__)
 #READ API (GET)
 @app.get("/countries")
 def get_all_countries():
-    return country.getAllCountries()
+    return country.get_all_countries()
 
 #CREATE/UPDATE API (POST)
 @app.post("/countries")
 def create_country():
     data = request.json
-    return country.createCountry(data)
+    return country.create_country(data)
 
 @app.delete("/countries/<int:country_id>")
 def delete_country(country_id):
-    return country.deleteCountry(country_id)
+    return country.delete_country(country_id)
 
 #Execute on the terminal as a script
 if __name__ == '__main__':

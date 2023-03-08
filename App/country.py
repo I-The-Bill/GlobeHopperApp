@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 import services
 
 
-def getAllCountries():
-    results = services.getAllCountries()
+def get_all_countries():
+    results = services.get_all_countries()
     
     #Converted list to dictionary
     data = []
@@ -13,14 +13,14 @@ def getAllCountries():
                      "Population":row[2],
                      "Continent":row[3]})
         
-    #return dictionary
+    ##Don't count this SQ return dictionary
     return jsonify(data)
 
 
-def createCountry(data):
-    services.createCountry(data)
+def create_country(data):
+    services.create_country(data)
     return jsonify({"Message":"Data inserted successfully"})
 
-def deleteCountry(countryID):
-    services.deleteCountry(countryID)
+def delete_country(countryID):
+    services.delete_country(countryID)
     return jsonify({"Message":"Data removed successfully"})
