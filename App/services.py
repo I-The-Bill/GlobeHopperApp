@@ -29,13 +29,13 @@ def createCountry(data):
     mycursor = conn.myconn.cursor()
 
     
-    cId = data['CountryId']
+    countryId = data['CountryId']
     name = data['Name']
     pop = data['Population']
     cont = data['Continent']
     #if data['CountryId'] == null:
      #   cId = data['CountryId']
-    values = (cId,name,pop,cont)
+    values = (countryId,name,pop,cont)
 
     mysql = "INSERT INTO Country (CountryId, Name, Population, Continent) VALUES (%s,%s,%s,%s)"
     mycursor.execute(mysql,values)
