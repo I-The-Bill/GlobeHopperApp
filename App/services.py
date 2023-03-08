@@ -29,11 +29,11 @@ def create_country(data):
     mycursor = conn.myconn.cursor()
 
     #Stuff to execute
-    countryId = data['CountryId']
+    country_id = data['CountryId']
     name = data['Name']
     pop = data['Population']
     cont = data['Continent']
-    values = (countryId,name,pop,cont)
+    values = (country_id,name,pop,cont)
 
     mysql = "INSERT INTO Country (CountryId, Name, Population, Continent) VALUES (%s,%s,%s,%s)"
     mycursor.execute(mysql,values)
@@ -42,14 +42,14 @@ def create_country(data):
     mycursor.close()
     conn.myconn.close()
 
-def delete_country(countryIdToDelete):
+def delete_country(country_id_to_delete):
     #Open connection to SQL
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
     #Stuff to execute
     mysql = "Delete from country where CountryId = %s"
-    mycursor.execute(mysql,(countryIdToDelete,))
+    mycursor.execute(mysql,(country_id_to_delete,))
 
     #Close the connection
     mycursor.close()
