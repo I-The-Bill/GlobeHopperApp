@@ -28,7 +28,7 @@ def createCountry(data):
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
-    
+    #Stuff to execute
     countryId = data['CountryId']
     name = data['Name']
     pop = data['Population']
@@ -47,6 +47,7 @@ def deleteCountry(countryIdToDelete):
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
+    #Stuff to execute
     mysql = "Delete from country where CountryId = %s"
     mycursor.execute(mysql,(countryIdToDelete,))
 
