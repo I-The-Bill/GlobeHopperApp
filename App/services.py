@@ -119,14 +119,14 @@ def create_city_serv(data):
     mycursor.close()
     conn.myconn.close()
 
-def delete_city_serv(City_id_to_delete):
+def delete_city_serv(city_id_to_delete):
     #Open connection to SQL
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
     #Stuff to execute
     mysql = "Delete from City where CityId = %s"
-    mycursor.execute(mysql,(City_id_to_delete,))
+    mycursor.execute(mysql,(city_id_to_delete,))
 
     #Close the connection
     mycursor.close()
