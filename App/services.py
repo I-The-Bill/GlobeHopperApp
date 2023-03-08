@@ -90,13 +90,13 @@ def get_all_countries_from_continent_serv(continent):
     #Return
     return results
 
-def get_capital_from_country_coun_serv(countryName):
+def get_capital_from_country_coun_serv(country_name):
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
     #Stuff to execute
     mysql = ("Select City.Name,Country.Name as 'Country',Country.Continent,City.FirstLandmark,City.SecondLandmark,City.ThirdLandmark from Country join City where Country.CountryId = City.CountryId and Capital = 1 and Country.Name = %s;")
-    mycursor.execute(mysql,(countryName,))
+    mycursor.execute(mysql,(country_name,))
     results = mycursor.fetchall()
 
     #Close the connection

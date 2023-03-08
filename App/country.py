@@ -17,15 +17,15 @@ def get_all_countries_coun():
     return jsonify(data)
 
 
-def get_all_countries_from_continent_coun(Continent):
-    results = services.get_all_countries_from_continent_serv(Continent)
+def get_all_countries_from_continent_coun(continent):
+    results = services.get_all_countries_from_continent_serv(continent)
     data = []
     for row in results:
         data.append({"Name":row[0]})
     return jsonify(data)
 
-def get_capital_from_country_coun(countryName):
-    results = services.get_capital_from_country_coun_serv(countryName)
+def get_capital_from_country_coun(country_name):
+    results = services.get_capital_from_country_coun_serv(country_name)
     data = []
     for row in results:
         data.append({"Name":row[0],
