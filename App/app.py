@@ -2,12 +2,12 @@
 
 
 from flask import Flask,request,jsonify
-#Don't count this SQ from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect
 import country
 
 app = Flask(__name__)
-##Don't count this SQ csrf = CSRFProtect()
-##Don't count this SQ csrf.init_app(app)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 #READ API (GET)
 @app.get("/countries")
