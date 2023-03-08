@@ -20,6 +20,10 @@ def createCountry():
     data = request.json
     return country.createCountry(data)
 
+@app.delete("/countries/<int:country_id>")
+def deleteCountry(country_id):
+    return country.deleteCountry(country_id)
+
 #Execute on the terminal as a script
 if __name__ == '__main__':
     app.run(debug=True)
