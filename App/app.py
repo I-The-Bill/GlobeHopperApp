@@ -10,14 +10,7 @@ import city
 
 
 app = Flask(__name__)
-'''csrf = CSRFProtect()
-csrf.init_app(app)
 
-
-import os
-SECRET_KEY = os.urandom(32)
-print(SECRET_KEY)
-app.config['SECRET_KEY'] = "bob"'''
 
 #####COUNTRIES#####
 
