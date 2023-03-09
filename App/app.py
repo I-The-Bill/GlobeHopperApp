@@ -91,7 +91,9 @@ def delete_city_app(city_id):
 def get_captial_from_country_app(country):
     return country_c.get_capital_from_country_coun(country)
 
-
+@app.get("/countries/size/<int:size>")
+def get_countries_from_size_app(size):
+    return country_c.get_countries_from_size_app(size)
 
 
 #Execute on the terminal as a script

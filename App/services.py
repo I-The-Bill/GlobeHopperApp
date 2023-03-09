@@ -90,6 +90,23 @@ def get_all_countries_from_continent_serv(continent):
     #Return
     return results
 
+def get_countries_from_size_serv(size):
+            #Open connection to SQL
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Stuff to execute
+    mysql = ("Select Name, Population from Country where Population > %s")
+    mycursor.execute(mysql,(size,))
+    results = mycursor.fetchall()
+
+    #Close the connection
+    mycursor.close()
+    conn.myconn.close()
+
+    #Return
+    return results
+
 def get_capital_from_country_coun_serv(country_name):
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
