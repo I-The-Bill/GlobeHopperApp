@@ -37,6 +37,14 @@ def get_capital_from_country_coun(country_name):
                     }) 
     return jsonify(data)
 
+def get_countries_from_size_app(size):
+    results = services.get_countries_from_size_serv(size)
+    data = []
+    for row in results:
+        data.append({"Name":row[0],
+                     "Population":row[1]})
+    return jsonify(data)
+
 def create_country_coun(data):
     services.create_country_serv(data)
     return jsonify({"Message":"Data inserted successfully"})
